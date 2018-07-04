@@ -1,0 +1,2 @@
+C:\DEV\GIT\BotBuilder\HotelBot\HotelBot\obj\Debug\HotelBot.csprojAssemblyReference.cache
+C:\DEV\GIT\BotBuilder\HotelBot\HotelBot\obj\Debug\HotelBot.csproj.CoreCompileInputs.cache
