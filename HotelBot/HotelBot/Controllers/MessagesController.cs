@@ -20,8 +20,8 @@ namespace HotelBot
         {
             if (activity.GetActivityType() == ActivityTypes.Message)
             {
-                //call a dialog on the message received
-               await Conversation.SendAsync(activity, () => new GreetingDialog());
+                //call the main dialog on message received
+               await Conversation.SendAsync(activity, () => Dialogs.MainDialog.dialog);
             }
             else
             {
