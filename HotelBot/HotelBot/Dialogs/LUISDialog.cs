@@ -25,6 +25,14 @@ namespace HotelBot.Dialogs
     [Serializable]
     public class LUISDialog : LuisDialog<BugReport>
     {
+        private readonly BuildFormDelegate<BugReport> NewBugReport;
+
+        //instantiate a new bug report
+        public LUISDialog(BuildFormDelegate<BugReport> newBugReport)
+        {
+            //inject default values for the bug report
+            this.NewBugReport = newBugReport;
+        }
 
         //create the task to return i dont know what you mean for unknown messages
         [LuisIntent("")]
@@ -54,5 +62,32 @@ namespace HotelBot.Dialogs
             var enrollmentForm = new FormDialog<BugReport>(new BugReport(), this.NewBugReport, FormOptions.PromptInStart);
             context.Call<BugReport>(enrollmentForm, Callback);
         }
+
+        //create query bug type intent. 
+        //This iterates throught he entity bug type ad compatte against of bug types
+        [LuisIntent("QueryBugType")]
+        public async Task QueryBugTypes(IDialogContext context, LuisResult result)
+        {
+            foreach (var entity in result.Entities.Where(Entity => Entity.Type == "BugType"))
+            {
+                var value = entity.Entity.ToLower();
+                if(Enum.GetNames(typeof(BugType)).Where(a => a.ToLower().Equals(value)).Count() > 0)
+                {
+                    await context.PostAsync("Yes that is a bug type!");
+                    context.Wait(MessageReceived);
+                    return;
+                }   
+                else
+                {
+                    await context.PostAsync("I'm sorry that is not a bug type.");
+                    context.Wait(MessageReceived);
+                    return;
+                }
+            }
+            await context.PostAsync("I'm sorry that is not a bug type.");
+            context.Wait(MessageReceived);
+            return;
+        }
+
     }
 }
