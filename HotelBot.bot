@@ -4,12 +4,12 @@
     "secretKey": "",
     "services": [
         {
-            "appId": "",
             "id": "cadc5220-93f4-11e8-95c3-655324841446",
+            "name": "http://localhost:3978/api/messages",
             "type": "endpoint",
+            "appId": "",
             "appPassword": "",
-            "endpoint": "http://localhost:3978/api/messages",
-            "name": "http://localhost:3978/api/messages"
+            "endpoint": "http://localhost:3978/api/messages"
         }
     ]
 }
