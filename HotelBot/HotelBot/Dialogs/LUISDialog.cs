@@ -6,7 +6,7 @@ using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Builder.Luis.Models;
 using System.Threading.Tasks;
-
+using HotelBot.Models.Facebook;
 
 namespace HotelBot.Dialogs
 {

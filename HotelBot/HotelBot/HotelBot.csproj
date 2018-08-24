@@ -159,6 +159,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BugReport.cs" />
+    <Compile Include="Models\Facebook\FacebookButton.cs" />
+    <Compile Include="Models\Facebook\FacebookElement.cs" />
+    <Compile Include="Models\Facebook\FacebookGraphError.cs" />
+    <Compile Include="Models\Facebook\FacebookGraphUser.cs" />
+    <Compile Include="Models\Facebook\FacebookLocation.cs" />
+    <Compile Include="Models\Facebook\FacebookPayload.cs" />
+    <Compile Include="Models\Facebook\FacebookSendMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
